@@ -1,0 +1,37 @@
+/* Will be compiled down to a single stylesheet with your sass files */
+$iconSpritePath:          "../components/sass-bootstrap/img/glyphicons-halflings.png";
+$iconWhiteSpritePath:     "../components/sass-bootstrap/img/glyphicons-halflings-white.png";
+@import "../components/sass-bootstrap/lib/bootstrap";
+@import "../components/sass-bootstrap/lib/responsive";
+@import "animations";
+
+.navbar-fixed-top .navbar-inner {
+  padding: 0;
+}
+.navbar-inner {
+  display: table;
+  height: 50px;
+  width: 100%;
+  .navbar-btn {
+    margin: 8px 8px;
+  }
+
+  .page-title {
+    display: table-cell;
+    vertical-align: middle; 
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.control-label {
+  width: 120px;
+}
+
+.control-label, .controls {
+  display: inline-block;
+}
+
+.controls input[type="number"] {
+  width: 50px;
+}

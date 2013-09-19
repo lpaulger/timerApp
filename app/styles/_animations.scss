@@ -1,0 +1,56 @@
+.fade {
+  &.ng-hide-add, &.ng-hide-remove {
+    -webkit-transition:0.5s linear all;
+    -moz-transition:0.5s linear all;
+    -o-transition:0.5s linear all;
+    transition:0.5s linear all;
+    display:block!important;
+  }
+
+  &.ng-hide {
+    opacity: 0;
+  }
+
+  &.ng-hide-add {
+    opacity:1;
+    &.ng-hide-add-active {
+      opacity:0;
+    }
+  }
+
+  &.ng-hide-remove {
+    opacity:0;
+    &.ng-hide-remove-active {
+      opacity:1;
+    }
+  }
+}
+
+.slide-horizontal {
+  &.ng-hide-add, &.ng-hide-remove {
+    -webkit-transition: height 0.35s ease;
+    -moz-transition: height 0.35s ease;
+    -o-transition: height 0.35s ease;
+    transition: height 0.35s ease;
+    display: block!important;
+  }
+
+  &.ng-hide-add {
+    height: 96px;
+    &.ng-hide-add-active {
+      position: relative;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  &.ng-hide-remove {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    &.ng-hide-remove-active {
+      height: 96px;
+    }
+  }
+}
+
