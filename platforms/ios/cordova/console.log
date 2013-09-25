@@ -1,0 +1,76 @@
+2013-09-19 13:50:42.227 TimerApp[66248:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-19 13:50:43.584 TimerApp[66248:c07] Resetting plugins due to page load.
+2013-09-19 13:50:44.304 TimerApp[66248:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+Terminating in response to SpringBoard's termination.
+2013-09-19 14:07:21.123 TimerApp[67114:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-19 14:07:21.193 TimerApp[67114:c07] Resetting plugins due to page load.
+2013-09-19 14:07:21.626 TimerApp[67114:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+Terminating in response to SpringBoard's termination.
+2013-09-19 14:08:48.829 TimerApp[67741:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-19 14:08:48.867 TimerApp[67741:c07] Resetting plugins due to page load.
+2013-09-19 14:08:48.980 TimerApp[67741:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-19 14:10:14.440 TimerApp[67796:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-19 14:10:14.491 TimerApp[67796:c07] Resetting plugins due to page load.
+2013-09-19 14:10:14.653 TimerApp[67796:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+Terminating in response to SpringBoard's termination.
+2013-09-19 14:12:58.573 TimerApp[68444:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-19 14:12:58.609 TimerApp[68444:c07] Resetting plugins due to page load.
+2013-09-19 14:12:58.722 TimerApp[68444:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-19 16:27:04.374 TimerApp[69235:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-19 16:27:04.818 TimerApp[69235:c07] Resetting plugins due to page load.
+2013-09-19 16:27:05.143 TimerApp[69235:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-23 19:48:57.551 TimerApp[96395:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-23 19:49:00.753 TimerApp[96395:c07] Resetting plugins due to page load.
+2013-09-23 19:49:02.701 TimerApp[96395:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+Terminating in response to SpringBoard's termination.
+2013-09-23 19:52:05.219 TimerApp[97059:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-23 19:52:05.333 TimerApp[97059:c07] Resetting plugins due to page load.
+2013-09-23 19:52:05.596 TimerApp[97059:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-23 19:52:05.645 TimerApp[97059:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-23 20:57:06.965 TimerApp[98496:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-23 20:57:07.093 TimerApp[98496:c07] Resetting plugins due to page load.
+2013-09-23 20:57:07.239 TimerApp[98496:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-23 20:57:07.315 TimerApp[98496:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+Terminating in response to SpringBoard's termination.
+2013-09-23 21:12:09.734 TimerApp[99280:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-23 21:12:09.840 TimerApp[99280:c07] Resetting plugins due to page load.
+2013-09-23 21:12:10.076 TimerApp[99280:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-23 21:12:10.095 TimerApp[99280:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-23 21:12:10.102 TimerApp[99280:c07] [object Object]
+Terminating in response to SpringBoard's termination.
+2013-09-23 21:16:44.845 TimerApp[99956:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-23 21:16:44.965 TimerApp[99956:c07] Resetting plugins due to page load.
+2013-09-23 21:16:45.171 TimerApp[99956:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-23 21:16:45.188 TimerApp[99956:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-23 21:16:50.046 TimerApp[99956:c07] deviceready has not fired after 5 seconds.
+2013-09-24 10:34:25.149 TimerApp[2504:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-24 10:34:25.325 TimerApp[2504:c07] Resetting plugins due to page load.
+2013-09-24 10:34:25.666 TimerApp[2504:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-24 10:34:25.687 TimerApp[2504:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+Terminating in response to SpringBoard's termination.
+2013-09-24 10:38:15.591 TimerApp[3800:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-24 10:38:15.629 TimerApp[3800:c07] Resetting plugins due to page load.
+2013-09-24 10:38:15.755 TimerApp[3800:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-24 10:38:15.782 TimerApp[3800:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-24 10:38:15.806 TimerApp[3800:c07] [object Object]
+Terminating in response to SpringBoard's termination.
+2013-09-24 10:40:21.752 TimerApp[4473:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-24 10:40:21.791 TimerApp[4473:c07] Resetting plugins due to page load.
+2013-09-24 10:40:21.924 TimerApp[4473:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-24 10:40:21.944 TimerApp[4473:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-24 10:40:21.951 TimerApp[4473:c07] [object Object]
+2013-09-24 10:40:21.951 TimerApp[4473:c07] [object Object]
+2013-09-24 11:48:50.540 TimerApp[5305:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-24 11:48:50.810 TimerApp[5305:c07] Resetting plugins due to page load.
+2013-09-24 11:48:51.144 TimerApp[5305:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-24 11:48:51.166 TimerApp[5305:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-24 11:48:51.174 TimerApp[5305:c07] [object Object]
+2013-09-24 11:48:51.175 TimerApp[5305:c07] x86_64
+Terminating in response to SpringBoard's termination.
+2013-09-24 11:59:45.302 TimerApp[6023:c07] Multi-tasking -> Device: YES, App: YES
+2013-09-24 11:59:45.339 TimerApp[6023:c07] Resetting plugins due to page load.
+2013-09-24 11:59:45.470 TimerApp[6023:c07] Finished load of: file:///Users/lpaulger/Library/Application%20Support/iPhone%20Simulator/6.1/Applications/4FEDF512-307F-491A-8229-4FDE9F9C8C51/TimerApp.app/www/index.html#/
+2013-09-24 11:59:45.491 TimerApp[6023:c07] DEPRECATION NOTICE: The Connection ReachableViaWWAN return value of '2g' is deprecated as of Cordova version 2.6.0 and will be changed to 'cellular' in a future release. 
+2013-09-24 11:59:45.498 TimerApp[6023:c07] [object Object]
+2013-09-24 11:59:45.499 TimerApp[6023:c07] x86_64
+Terminating in response to SpringBoard's termination.
