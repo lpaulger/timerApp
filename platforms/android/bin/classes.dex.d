@@ -7,4 +7,4 @@
 /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/android/bin/classes/com/lpprojects/timerapp/R$xml.class \
 /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/android/bin/classes/com/lpprojects/timerapp/R.class \
 /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/android/bin/classes/com/lpprojects/timerapp/TimerApp.class \
-/Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/android/bin/dexedLibs/cordova-2.8.0-8961469286a0052cd9a23684b1c03d56.jar \
+/Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/android/bin/dexedLibs/cordova-3.0.0-c4a939c0c143be0debcbf541d525b291.jar \

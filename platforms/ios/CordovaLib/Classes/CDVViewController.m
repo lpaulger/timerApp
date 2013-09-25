@@ -23,6 +23,7 @@
 #import "CDVConfigParser.h"
 #import "CDVUserAgentUtil.h"
 #import "CDVWebViewDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 
@@ -51,7 +52,6 @@
 @synthesize webView, supportedOrientations;
 @synthesize pluginObjects, pluginsMap, whitelist, startupPluginNames;
 @synthesize configParser, settings, loadFromString;
-@synthesize useSplashScreen;
 @synthesize wwwFolderName, startPage, initialized, openURL;
 @synthesize commandDelegate = _commandDelegate;
 @synthesize commandQueue = _commandQueue;
@@ -84,7 +84,6 @@
 
         // load config.xml settings
         [self loadSettings];
-        useSplashScreen = YES;
     }
 }
 
@@ -128,7 +127,7 @@
 
 - (void)keyboardWillShowOrHide:(NSNotification*)notif
 {
-    if (![@"true" isEqualToString : self.settings[@"KeyboardShrinksView"]]) {
+    if (![@"true" isEqualToString :[self settingForKey:@"KeyboardShrinksView"]]) {
         return;
     }
     BOOL showEvent = [notif.name isEqualToString:UIKeyboardWillShowNotification];
@@ -246,11 +245,11 @@
 
     NSString* backupWebStorageType = @"cloud"; // default value
 
-    id backupWebStorage = self.settings[@"BackupWebStorage"];
+    id backupWebStorage = [self settingForKey:@"BackupWebStorage"];
     if ([backupWebStorage isKindOfClass:[NSString class]]) {
         backupWebStorageType = backupWebStorage;
     }
-    self.settings[@"BackupWebStorage"] = backupWebStorageType;
+    [self setSetting:backupWebStorageType forKey:@"BackupWebStorage"];
 
     if (IsAtLeastiOSVersion(@"5.1")) {
         [CDVLocalStorage __fixupDatabaseLocationsWithBackupType:backupWebStorageType];
@@ -262,16 +261,15 @@
 
     // /////////////////
 
-    NSNumber* enableLocation = [self.settings objectForKey:@"EnableLocation"];
-    NSString* enableViewportScale = [self.settings objectForKey:@"EnableViewportScale"];
-    NSNumber* allowInlineMediaPlayback = [self.settings objectForKey:@"AllowInlineMediaPlayback"];
+    NSString* enableViewportScale = [self settingForKey:@"EnableViewportScale"];
+    NSNumber* allowInlineMediaPlayback = [self settingForKey:@"AllowInlineMediaPlayback"];
     BOOL mediaPlaybackRequiresUserAction = YES;  // default value
-    if ([self.settings objectForKey:@"MediaPlaybackRequiresUserAction"]) {
-        mediaPlaybackRequiresUserAction = [(NSNumber*)[settings objectForKey:@"MediaPlaybackRequiresUserAction"] boolValue];
+    if ([self settingForKey:@"MediaPlaybackRequiresUserAction"]) {
+        mediaPlaybackRequiresUserAction = [(NSNumber*)[self settingForKey:@"MediaPlaybackRequiresUserAction"] boolValue];
     }
     BOOL hideKeyboardFormAccessoryBar = NO;  // default value
-    if ([self.settings objectForKey:@"HideKeyboardFormAccessoryBar"]) {
-        hideKeyboardFormAccessoryBar = [(NSNumber*)[settings objectForKey:@"HideKeyboardFormAccessoryBar"] boolValue];
+    if ([self settingForKey:@"HideKeyboardFormAccessoryBar"]) {
+        hideKeyboardFormAccessoryBar = [(NSNumber*)[self settingForKey:@"HideKeyboardFormAccessoryBar"] boolValue];
     }
 
     self.webView.scalesPageToFit = [enableViewportScale boolValue];
@@ -279,11 +277,6 @@
     /*
      * Fire up the GPS Service right away as it takes a moment for data to come back.
      */
-
-    if ([enableLocation boolValue]) {
-        NSLog(@"Deprecated: The 'EnableLocation' boolean property is deprecated in 2.5.0, and will be removed in 3.0.0. Use the 'onload' boolean attribute (of the CDVLocation plugin.");
-        [[self.commandDelegate getCommandInstance:@"Geolocation"] getLocation:[CDVInvokedUrlCommand new]];
-    }
 
     if (hideKeyboardFormAccessoryBar) {
         __weak CDVViewController* weakSelf = self;
@@ -317,9 +310,9 @@
     // By default, overscroll bouncing is allowed.
     // UIWebViewBounce has been renamed to DisallowOverscroll, but both are checked.
     BOOL bounceAllowed = YES;
-    NSNumber* disallowOverscroll = [self.settings objectForKey:@"DisallowOverscroll"];
+    NSNumber* disallowOverscroll = [self settingForKey:@"DisallowOverscroll"];
     if (disallowOverscroll == nil) {
-        NSNumber* bouncePreference = [self.settings objectForKey:@"UIWebViewBounce"];
+        NSNumber* bouncePreference = [self settingForKey:@"UIWebViewBounce"];
         bounceAllowed = (bouncePreference == nil || [bouncePreference boolValue]);
     } else {
         bounceAllowed = ![disallowOverscroll boolValue];
@@ -344,9 +337,9 @@
      */
     if (IsAtLeastiOSVersion(@"6.0")) {
         BOOL keyboardDisplayRequiresUserAction = YES; // KeyboardDisplayRequiresUserAction - defaults to YES
-        if ([self.settings objectForKey:@"KeyboardDisplayRequiresUserAction"] != nil) {
-            if ([self.settings objectForKey:@"KeyboardDisplayRequiresUserAction"]) {
-                keyboardDisplayRequiresUserAction = [(NSNumber*)[self.settings objectForKey:@"KeyboardDisplayRequiresUserAction"] boolValue];
+        if ([self settingForKey:@"KeyboardDisplayRequiresUserAction"] != nil) {
+            if ([self settingForKey:@"KeyboardDisplayRequiresUserAction"]) {
+                keyboardDisplayRequiresUserAction = [(NSNumber*)[self settingForKey:@"KeyboardDisplayRequiresUserAction"] boolValue];
             }
         }
 
@@ -356,9 +349,9 @@
         }
 
         BOOL suppressesIncrementalRendering = NO; // SuppressesIncrementalRendering - defaults to NO
-        if ([self.settings objectForKey:@"SuppressesIncrementalRendering"] != nil) {
-            if ([self.settings objectForKey:@"SuppressesIncrementalRendering"]) {
-                suppressesIncrementalRendering = [(NSNumber*)[self.settings objectForKey:@"SuppressesIncrementalRendering"] boolValue];
+        if ([self settingForKey:@"SuppressesIncrementalRendering"] != nil) {
+            if ([self settingForKey:@"SuppressesIncrementalRendering"]) {
+                suppressesIncrementalRendering = [(NSNumber*)[self settingForKey:@"SuppressesIncrementalRendering"] boolValue];
             }
         }
 
@@ -380,11 +373,6 @@
         [CDVTimer stop:@"TotalPluginStartup"];
     }
 
-    // TODO: Remove this explicit instantiation once we move to cordova-CLI.
-    if (useSplashScreen) {
-        [self getCommandInstance:@"splashscreen"];
-    }
-
     // /////////////////
     [CDVUserAgentUtil acquireLock:^(NSInteger lockToken) {
         _userAgentLockToken = lockToken;
@@ -397,6 +385,16 @@
             [self.webView loadHTMLString:html baseURL:nil];
         }
     }];
+}
+
+- (id)settingForKey:(NSString*)key
+{
+    return [[self settings] objectForKey:[key lowercaseString]];
+}
+
+- (void)setSetting:(id)setting forKey:(NSString*)key
+{
+    [[self settings] setObject:setting forKey:[key lowercaseString]];
 }
 
 - (void)hideKeyboardFormAccessoryBar

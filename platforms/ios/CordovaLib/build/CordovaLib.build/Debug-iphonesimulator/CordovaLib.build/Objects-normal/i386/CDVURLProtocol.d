@@ -10,5 +10,4 @@ dependencies: \
   /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/ios/CordovaLib/Classes/CDVScreenOrientationDelegate.h \
   /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/ios/CordovaLib/Classes/CDVPlugin.h \
   /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/ios/CordovaLib/Classes/CDVPluginResult.h \
-  /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/ios/CordovaLib/Classes/NSMutableArray+QueueAdditions.h \
-  /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/ios/CordovaLib/Classes/CDVFile.h
+  /Users/lpaulger/Documents/yeomanWorkspace/timerApp/platforms/ios/CordovaLib/Classes/NSMutableArray+QueueAdditions.h

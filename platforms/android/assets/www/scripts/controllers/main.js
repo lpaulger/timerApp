@@ -1,5 +1,4 @@
 'use strict';
-/* globals device */
 
 angular.module('timerApp')
   .controller('MainCtrl', function($scope, $timeout, $modal, localStorageService) {
@@ -8,6 +7,8 @@ angular.module('timerApp')
       intervalTimer: !isNaN(new Date(parseInt(localStorageService.get('intervalTimer'), 10)).getMonth()) ? new Date(parseInt(localStorageService.get('intervalTimer'), 10)) : new Date().setHours(0, 0, 2, 0),
       repeat: parseInt(localStorageService.get('repeat'), 10) || 2
     };
+
+
 
     $scope.timer = $scope.defaults.timer;
     $scope.intervalTimer = $scope.defaults.intervalTimer;
@@ -21,23 +22,35 @@ angular.module('timerApp')
     $scope.mstep = 1;
     $scope.sstep = 1;
 
-    $scope.$watch('timer', function(value) {
-      if (value.getTime) {
-        value = value.getTime();
-      }
-      localStorageService.add('timer', value);
-    });
+    var timerWatch, intervalTimerWatch, repeatWatch;
 
-    $scope.$watch('intervalTimer', function(value) {
-      if (value.getTime) {
-        value = value.getTime();
-      }
-      localStorageService.add('intervalTimer', value);
-    });
+    function setWatch() {
+      timerWatch = $scope.$watch('timer', function(value) {
+        if (value.getTime) {
+          value = value.getTime();
+        }
+        localStorageService.add('timer', value);
+      });
 
-    $scope.$watch('repeat', function(value) {
-      localStorageService.add('repeat', value);
-    });
+      intervalTimerWatch = $scope.$watch('intervalTimer', function(value) {
+        if (value.getTime) {
+          value = value.getTime();
+        }
+        localStorageService.add('intervalTimer', value);
+      });
+
+      repeatWatch = $scope.$watch('repeat', function(value) {
+        localStorageService.add('repeat', value);
+      });
+    }
+
+    function unsetWatch() {
+      timerWatch();
+      intervalTimerWatch();
+      repeatWatch();
+    }
+
+    setWatch();
 
     $scope.showIntervalModal = function() {
       var modalInstance = $modal.open({
@@ -93,7 +106,9 @@ angular.module('timerApp')
 
     $scope.start = function() {
       $scope.isRunning = true;
+      unsetWatch();
       tId = $timeout($scope.interval, 1000);
+
     };
 
     $scope.pause = function() {
@@ -104,13 +119,8 @@ angular.module('timerApp')
     $scope.stop = function() {
       $timeout.cancel(tId);
       $scope.isRunning = false;
+      setWatch();
       navigator.notification.vibrate(2500);
-      navigator.notification.alert(
-        'You are the winner!',
-        function() {},
-        'Game Over',
-        'Done');
-
       $scope.timer = $scope.defaults.timer;
       $scope.intervalTimer = $scope.defaults.intervalTimer;
       $scope.repeat = $scope.defaults.repeat;

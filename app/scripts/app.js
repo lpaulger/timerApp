@@ -1,9 +1,4 @@
 'use strict';
-/* globals device, alert */
-
-document.addEventListener('deviceready', function(){
-  console.log(device);
-}, false);
 
 angular.module('timerApp', ['ngRoute', 'ui.bootstrap', 'LocalStorageModule'])
 .config(function ($routeProvider) {
@@ -16,7 +11,5 @@ angular.module('timerApp', ['ngRoute', 'ui.bootstrap', 'LocalStorageModule'])
     redirectTo: '/'
   });
 }).run(function(){
-  document.addEventListener('deviceready', function(){
-    console.log(device.model);
-  }, false);
+
 });
