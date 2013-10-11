@@ -1,5 +1,10 @@
-node_modules
-dist
+.DS_Store
 .tmp
 .sass-cache
+node_modules
+heroku/dist
 app/components
+www
+coverage
+platforms
+plugins

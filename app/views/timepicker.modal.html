@@ -1,11 +1,10 @@
 <div class="modal-header">
-  <h3>Interval Timer</h3>
+  <h3>{{title}}</h3>
 </div>
 <div class="modal-body">
   <div ng-model="intervalTimer" class="well well-small">
     <lp-timepicker hour-step="hstep" minute-step="mstep" second-step="sstep"></lp-timepicker>
   </div>
-  {{intervalTimer | date:'H:mm:ss'}}
 </div>
 <div class="modal-footer">
   <button class="btn btn-warning" ng-click="cancel()">Cancel</button>

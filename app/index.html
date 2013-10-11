@@ -8,15 +8,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title></title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="components/angular-mobile-nav/mobile-nav.css"></link>
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
   <script src="cordova.js"></script>
 </head>
-<body ng-app="timerApp">
+<body class="animation-container">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
       <![endif]-->
@@ -27,33 +28,41 @@
       <![endif]-->
 
       <!-- Add your site or application content here -->
-
-      <ng-include src="'views/default.navbar.html'"></ng-include>
-
-      <div class="container" ng-view></div>
+      <div class="container my-slide-animation" mobile-view></div>
 
       <script src="components/angular/angular.js"></script>
       <script src="components/angular-route/angular-route.js"></script>
-      <script src="components/angular-localstorage/localStorageModule.js"></script>
+      <script src="components/angular-mobile-nav/mobile-nav.js"></script>
+      <script src="components/angular-touch/angular-touch.js"></script>
+      <script src="components/angular-localstorage/angular-local-storage.js"></script>
       <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
       <!-- build:js scripts/scripts.js -->
       <script src="scripts/app.js"></script>
+
+      <script src="scripts/config/config.js"></script>
+      <script src="scripts/config/config.device.js"></script>
+      <script src="scripts/config/config.events.js"></script>
+
       <script src="scripts/controllers/main.js"></script>
-      <script src="scripts/controllers/primaryNav.js"></script>
+      <script src="scripts/controllers/settings.js"></script>
+      <script src="scripts/controllers/info.js"></script>
       <script src="scripts/controllers/timepicker.modal.js"></script>
 
       <script src="scripts/directives/directives.js"></script>
 
+      <script src="scripts/filters/range.js"></script>
+
       <script src="scripts/services/services.js"></script>
+      <script src="scripts/services/timer.js"></script>
+      <script src="scripts/services/dataStore.js"></script>
+
+      <script src="scripts/init.js"></script>
       <!-- endbuild -->
 
-      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-      <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-      </script>
+      <audio id="bell-sound" src="assets/sounds/bell-ringing-05.mp3"></audio>
+      <audio id="bell-complete-sound" src="assets/sounds/bell-ringing-04.mp3"></audio>
+      <audio id="bell-cancel-sound" src="assets/sounds/fail-buzzer-02.mp3"></audio>
+      <audio id="clock-tick-sound" src="assets/sounds/clock-ticking-3.mp3"></audio>
     </body>
     </html>
