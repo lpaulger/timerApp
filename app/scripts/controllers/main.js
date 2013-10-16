@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('timerApp')
-  .controller('MainCtrl', function($scope, $timeout, $modal, $navigate, events, dataStore, Timer) {
+  .controller('MainCtrl', function($scope, $timeout, $navigate, events, dataStore, Timer) {
     $scope.timer = dataStore.get('timer');
     $scope.intervalTimer = dataStore.get('intervalTimer');
     $scope.repeat = dataStore.get('repeat');
@@ -27,41 +27,11 @@ angular.module('timerApp')
     $scope.sstep = 1;
 
     $scope.showTimerModal = function() {
-      var modalInstance = $modal.open({
-        templateUrl: 'views/timepicker.modal.html',
-        controller: 'TimepickerModalCtrl',
-        resolve: {
-          time: function() {
-            return $scope.timer;
-          },
-          title: function() {
-            return 'Timer';
-          }
-        }
-      });
-
-      modalInstance.result.then(function(time) {
-        $scope.timer = time;
-      });
+      $navigate.go('/Timer', 'modal');
     };
 
     $scope.showIntervalModal = function() {
-      var modalInstance = $modal.open({
-        templateUrl: 'views/timepicker.modal.html',
-        controller: 'TimepickerModalCtrl',
-        resolve: {
-          time: function() {
-            return $scope.intervalTimer;
-          },
-          title: function() {
-            return 'Interval Timer';
-          }
-        }
-      });
-
-      modalInstance.result.then(function(time) {
-        $scope.intervalTimer = time;
-      });
+      $navigate.go('/IntervalTimer', 'modal');
     };
 
     $scope.start = function() {

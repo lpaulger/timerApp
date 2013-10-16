@@ -29,22 +29,22 @@ describe('Controller: MainCtrl', function() {
   });
 
   describe('when show timer modal clicked', function() {
-    it('should call $modal.open()', inject(function($modal) {
-      spyOn($modal, 'open').andCallThrough();
+    it('should call $navigate.go', inject(function($navigate) {
+      spyOn($navigate, 'go').andCallThrough();
 
       scope.showTimerModal();
 
-      expect($modal.open).toHaveBeenCalled();
+      expect($navigate.go).toHaveBeenCalledWith('/Timer', 'modal');
     }));
   });
 
   describe('when show interval modal clicked', function() {
-    it('should call $modal.open()', inject(function($modal) {
-      spyOn($modal, 'open').andCallThrough();
+    it('should call $navigate.go', inject(function($navigate) {
+      spyOn($navigate, 'go').andCallThrough();
 
       scope.showIntervalModal();
 
-      expect($modal.open).toHaveBeenCalled();
+      expect($navigate.go).toHaveBeenCalledWith('/IntervalTimer', 'modal');
     }));
   });
 

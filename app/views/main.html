@@ -30,7 +30,7 @@
         <i class="icon-repeat icon-stack-base"></i><b ng-bind="repeat">1</b>
       </span>
       <select ng-model="repeat" name="repeat">
-        <option ng-repeat="n in [] | range:100">{{n}}</option>
+        <option ng-repeat="n in [] | range:100:false">{{n}}</option>
       </select>
     </div>
   </div>

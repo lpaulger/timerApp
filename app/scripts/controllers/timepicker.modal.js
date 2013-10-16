@@ -1,17 +1,29 @@
 'use strict';
 
-angular.module('timerApp').controller('TimepickerModalCtrl', function($scope, $modalInstance, time, title){
-  $scope.hstep = 1;
-  $scope.mstep = 1;
-  $scope.sstep = 1;
+angular.module('timerApp').controller('TimepickerModalCtrl', function($scope, $navigate, dataStore, timeId, title){
   $scope.title = title;
-  $scope.intervalTimer = new Date(time);
+  $scope.time = new Date(dataStore.get(timeId));
 
-  $scope.ok = function (timer) {
-    $modalInstance.close(timer);
-  };
+  $scope.hours = $scope.time.getHours();
+  $scope.minutes = $scope.time.getMinutes();
+  $scope.seconds = $scope.time.getSeconds();
 
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+  $scope.$watch('hours', function(val){
+    $scope.time.setHours(val);
+    dataStore.save(timeId, $scope.time);
+  });
+
+  $scope.$watch('minutes', function(val){
+    $scope.time.setMinutes(val);
+    dataStore.save(timeId, $scope.time);
+  });
+
+  $scope.$watch('seconds', function(val){
+    $scope.time.setSeconds(val);
+    dataStore.save(timeId, $scope.time);
+  });
+
+  $scope.back = function(){
+    $navigate.go('/', 'modal', true);
   };
 });

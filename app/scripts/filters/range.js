@@ -1,9 +1,15 @@
 'use strict';
 
 angular.module('timerApp').filter('range', function() {
-  return function(input, total) {
+  return function(input, total, startAtZero) {
+    var i = 0;
+    if(startAtZero===false) {
+      i=1;
+      total ++;
+    }
+
     total = parseInt(total, 10);
-    for (var i=1; i<total+1; i++){
+    for (i; i<total; i++){
       input.push(i);
     }
     return input;
