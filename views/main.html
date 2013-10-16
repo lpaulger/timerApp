@@ -1,0 +1,40 @@
+<!-- <a ng-click="settings()">
+  <span class="icon-stack icon-2x">
+    <i class="icon-circle-blank icon-stack-base"></i>
+    <i class="icon icon-cog"></i>
+  </span>
+</a> -->
+<a></a>
+<a ng-click="info()">
+  <span class="icon-stack icon-2x">
+    <i class="icon-circle-blank icon-stack-base"></i>
+    <i class="icon icon-info"></i>
+  </span>
+</a>
+<ng-include src="'views/clock.html'"></ng-include>
+
+<div class="sticky-footer">
+  <div class="btn-group btn-group-justified">
+    <a class="btn btn-primary" ng-model="useIntervalTimer" ng-class="{'btn-primary': useIntervalTimer, 'btn-danger': !useIntervalTimer}" ng-click="useIntervalTimer = !useIntervalTimer">
+      <span ng-show="useIntervalTimer">On</span>
+      <span ng-show="!useIntervalTimer">Off</span>
+    </a>
+    <a class="btn btn-info" ng-click="showIntervalModal($event)">
+      <span class="icon-stack">
+        <i class="icon-time icon-stack-base"></i>
+      </span>
+      <span ng-bind="intervalTimer | date:'H:mm:ss'" ng-click="showIntervalModal($event)"></span>
+    </a>
+    <div class="btn btn-info">
+      <span class="icon-stack icon-2x">
+        <i class="icon-repeat icon-stack-base"></i><b ng-bind="repeat">1</b>
+      </span>
+      <select ng-model="repeat" name="repeat">
+        <option ng-repeat="n in [] | range:100:false">{{n}}</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="btn btn-primary btn-lg btn-block" ng-click="start()" ng-if="!isRunning">Start</button>
+  <button class="btn btn-danger btn-lg btn-block" ng-click="stop()" ng-if="isRunning">Stop</button>
+</div>

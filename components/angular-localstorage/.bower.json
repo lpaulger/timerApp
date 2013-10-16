@@ -1,0 +1,34 @@
+{
+  "name": "angular-local-storage",
+  "homepage": "http://gregpike.net/demos/angular-local-storage/demo.html",
+  "authors": [
+    "grevory <greg@gregpike.ca>"
+  ],
+  "description": "An Angular module that gives you access to the browser's local storage",
+  "main": "angular-local-storage.js",
+  "keywords": [
+    "AngularJS",
+    "Local Storage"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angularjs": "*",
+    "angular-mocks": "~1.0.8"
+  },
+  "_release": "master",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e0ee1851ca69987f37362ac096f844895e6e7e39"
+  },
+  "_source": "git://github.com/grevory/angular-local-storage.git",
+  "_target": "*",
+  "_originalSource": "angular-localstorage"
+}

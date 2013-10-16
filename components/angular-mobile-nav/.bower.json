@@ -1,0 +1,28 @@
+{
+  "name": "angular-mobile-nav",
+  "main": [
+    "./mobile-nav.js",
+    "./mobile-nav.css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "LICENSE",
+    "Makefile",
+    "README.md",
+    "demo",
+    "src"
+  ],
+  "homepage": "https://github.com/ajoslin/angular-mobile-nav",
+  "_release": "master",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d6f1a3b0c693943a8a505422904f5041efc52667"
+  },
+  "_source": "git://github.com/ajoslin/angular-mobile-nav.git",
+  "_target": "*",
+  "_originalSource": "angular-mobile-nav"
+}
