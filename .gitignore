@@ -5,7 +5,7 @@ node_modules
 heroku/dist
 app/components
 www
-!/www/res
+!/www/res/
 !/www/config.xml
 coverage
 platforms
