@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     yeoman: yeomanConfig,
     shell: {
       phonegapBuild: {
-        command: 'cordova build ios'
+        command: 'cordova build'
       }
     },
     watch: {

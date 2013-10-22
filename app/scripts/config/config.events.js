@@ -7,8 +7,8 @@ angular.module('LP.config').factory('events', function(deviceEvents){
       document.getElementById('clock-tick-sound').play();
     },
     intervalEnd: function(){
-      deviceEvents.vibrate(1000);
       document.getElementById('bell-sound').play();
+      deviceEvents.vibrate(1000);
     },
     start: function(){
       deviceEvents.acquire(function(){
