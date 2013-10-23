@@ -7,7 +7,7 @@ angular.module('timerApp')
     secondStep: 1,
     readonlyInput: false
   })
-  .directive('lpTimepicker', function($parse, $log, timepickerConfig) {
+  .directive('lpTimepicker', function($parse, $log, $timeout, timepickerConfig) {
     return {
       restrict: 'EA',
       require: '?^ngModel',
@@ -222,7 +222,9 @@ angular.module('timerApp')
           addMinutes(-minuteStep);
         };
         scope.incrementSeconds = function() {
-          addMinutes(secondStep /60);
+          $timeout(function(){
+            addMinutes(secondStep /60);
+          }, 100);
         };
         scope.decrementSeconds = function() {
           addMinutes(-secondStep/60);

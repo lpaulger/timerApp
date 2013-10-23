@@ -1,128 +1,109 @@
 'use strict';
 
 angular.module('timerApp')
-  .controller('MainCtrl', function($scope, $timeout, $modal, localStorageService) {
-    $scope.defaults = {
-      timer: !isNaN(new Date(parseInt(localStorageService.get('timer'), 10)).getMonth()) ? new Date(parseInt(localStorageService.get('timer'), 10)) : new Date().setHours(0, 0, 5, 0),
-      intervalTimer: !isNaN(new Date(parseInt(localStorageService.get('intervalTimer'), 10)).getMonth()) ? new Date(parseInt(localStorageService.get('intervalTimer'), 10)) : new Date().setHours(0, 0, 2, 0),
-      repeat: parseInt(localStorageService.get('repeat'), 10) || 2
-    };
+  .controller('MainCtrl', function($scope, $timeout, $navigate, events, dataStore, Timer) {
+    $scope.timer = dataStore.get('timer');
+    $scope.intervalTimer = dataStore.get('intervalTimer');
+    $scope.repeat = dataStore.get('repeat');
+    $scope.useIntervalTimer = dataStore.get('useIntervalTimer');
 
+    $scope.timeVisual = new Date($scope.timer);
 
+    $scope.$watch('timer', function(time) {
+      $scope.timeVisual = new Date($scope.timer);
+    });
 
-    $scope.timer = $scope.defaults.timer;
-    $scope.intervalTimer = $scope.defaults.intervalTimer;
-    $scope.repeat = $scope.defaults.repeat;
+    $scope.$watch('useIntervalTimer', function(val) {
+      dataStore.save('useIntervalTimer', val);
+    });
 
-    var tId, tIntId;
+    var timer1, timer2, timer1Promise, timer2Promise;
     $scope.isRunning = false;
+    $scope.isTimerRunning = false;
 
     //default arrow intervals
     $scope.hstep = 1;
     $scope.mstep = 1;
     $scope.sstep = 1;
 
-    var timerWatch, intervalTimerWatch, repeatWatch;
-
-    function setWatch() {
-      timerWatch = $scope.$watch('timer', function(value) {
-        if (value.getTime) {
-          value = value.getTime();
-        }
-        localStorageService.add('timer', value);
-      });
-
-      intervalTimerWatch = $scope.$watch('intervalTimer', function(value) {
-        if (value.getTime) {
-          value = value.getTime();
-        }
-        localStorageService.add('intervalTimer', value);
-      });
-
-      repeatWatch = $scope.$watch('repeat', function(value) {
-        localStorageService.add('repeat', value);
-      });
-    }
-
-    function unsetWatch() {
-      timerWatch();
-      intervalTimerWatch();
-      repeatWatch();
-    }
-
-    setWatch();
+    $scope.showTimerModal = function() {
+      $navigate.go('/Timer', 'modal');
+    };
 
     $scope.showIntervalModal = function() {
-      var modalInstance = $modal.open({
-        templateUrl: 'views/timepicker.modal.html',
-        controller: 'TimepickerModalCtrl',
-        resolve: {
-          time: function() {
-            return $scope.intervalTimer;
-          }
-        }
-      });
-
-      modalInstance.result.then(function(time) {
-        $scope.intervalTimer = time;
-      });
-    };
-
-    $scope.interval2 = function() {
-      $scope.intervalTimer = $scope.intervalTimer - 1000;
-      tIntId = $timeout($scope.interval2, 1000);
-      var datetime = new Date($scope.intervalTimer);
-
-      //interval timer complete
-      if (datetime.getHours() === 0 && datetime.getMinutes() === 0 && datetime.getSeconds() === 0) {
-        $timeout.cancel(tIntId);
-        $scope.intervalTimer = $scope.defaults.intervalTimer;
-        tId = $timeout($scope.interval, 1000);
-      }
-    };
-
-    $scope.interval = function() {
-      $scope.timer = $scope.timer - 1000;
-      tId = $timeout($scope.interval, 1000);
-      var datetime = new Date($scope.timer);
-      if (datetime.getHours() === 0 && datetime.getMinutes() === 0 && datetime.getSeconds() === 0) {
-
-        //do we repeat?
-        if ($scope.repeat > 1) {
-          $scope.repeat--; //reduce repeat count
-          //start interval timer
-          $timeout.cancel(tId);
-          $scope.timer = $scope.defaults.timer;
-          if ($scope.useIntervalTimer) {
-            tIntId = $timeout($scope.interval2, 1000);
-          } else {
-            tId = $timeout($scope.interval, 1000);
-          }
-        } else {
-          $scope.stop();
-        }
-      }
+      $navigate.go('/IntervalTimer', 'modal');
     };
 
     $scope.start = function() {
+      if (!$scope.isRunning) {
+        events.start();
+        dataStore.save('repeat', $scope.repeat);
+      }
+      dataStore.save('timer', $scope.timer);
+      dataStore.save('intervalTimer', $scope.intervalTimer);
       $scope.isRunning = true;
-      unsetWatch();
-      tId = $timeout($scope.interval, 1000);
+      $scope.isTimerRunning = true;
+      timer1 = new Timer({
+        timestamp: $scope.timer,
+        interval: 1000
+      });
+      timer1.start(function(time) {
+        events.intervalTick();
+        $scope.timer = time;
+      }).then(function() {
+        events.intervalEnd();
+        $scope.timer = dataStore.get('timer');
+        if ($scope.repeat > 1) {
+          $scope.repeat--;
+          if ($scope.useIntervalTimer) {
+            timer2 = new Timer({
+              timestamp: $scope.intervalTimer,
+              interval: 1000
+            });
+            timer2.start(function(time) {
+              $scope.isTimerRunning = false;
+              events.intervalTick();
+              $scope.intervalTimer = time;
+            }).then(function() {
+              events.intervalEnd();
+              $scope.intervalTimer = dataStore.get('intervalTimer');
 
-    };
-
-    $scope.pause = function() {
-      $timeout.cancel(tId);
-      $scope.isRunning = false;
+              $scope.start();
+            });
+          } else {
+            $scope.start();
+          }
+        } else {
+          $scope.isRunning = false;
+          $scope.stop();
+        }
+      });
     };
 
     $scope.stop = function() {
-      $timeout.cancel(tId);
+      $scope.isTimerRunning = false;
+      if ($scope.isRunning) {
+        //the user interupted the timer
+        events.cancel();
+      } else {
+        events.complete();
+      }
+
       $scope.isRunning = false;
-      setWatch();
-      navigator.notification.vibrate(2500);
-      $scope.timer = $scope.defaults.timer;
-      $scope.intervalTimer = $scope.defaults.intervalTimer;
-      $scope.repeat = $scope.defaults.repeat;
+      timer1.cancel();
+      if (timer2) {
+        timer2.cancel();
+      }
+      $scope.timer = dataStore.get('timer');
+      $scope.intervalTimer = dataStore.get('intervalTimer');
+      $scope.repeat = dataStore.get('repeat');
+    };
+
+    $scope.settings = function() {
+      $navigate.go('/Settings', 'slide', true);
+    };
+
+    $scope.info = function() {
+      $navigate.go('/Info');
     };
   });

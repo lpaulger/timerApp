@@ -1,13 +1,35 @@
-<div class="modal-header">
-  <h3>Interval Timer</h3>
+<a></a>
+<a ng-click="back()">
+  <span class="icon-stack icon-2x">
+    <i class="icon-circle-blank icon-stack-base"></i>
+    <i class="icon icon-chevron-down"></i>
+  </span>
+</a>
+<h1 ng-bind="title"></h1>
+<div class="select-container">
+  <span class="icon-stack icon-2x">
+    <i class="icon-circle-blank icon-stack-base"></i>
+    <b>H</b>
+  </span>
+  <select ng-model="hours">
+    <option ng-repeat="n in [] | range:24">{{n}}</option>
+  </select>
 </div>
-<div class="modal-body">
-  <div ng-model="intervalTimer" class="well well-small">
-    <lp-timepicker hour-step="hstep" minute-step="mstep" second-step="sstep"></lp-timepicker>
-  </div>
-  {{intervalTimer | date:'H:mm:ss'}}
+<div class="select-container">
+  <span class="icon-stack icon-2x">
+    <i class="icon-circle-blank icon-stack-base"></i>
+    <b>M</b>
+  </span>
+  <select ng-model="minutes">
+    <option ng-repeat="n in [] | range:60">{{n}}</option>
+  </select>
 </div>
-<div class="modal-footer">
-  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-  <button class="btn btn-primary" ng-click="ok(intervalTimer)">OK</button>
+<div class="select-container">
+  <span class="icon-stack icon-2x">
+    <i class="icon-circle-blank icon-stack-base"></i>
+    <b>S</b>
+  </span>
+  <select ng-model="seconds">
+    <option ng-repeat="n in [] | range:60">{{n}}</option>
+  </select>
 </div>

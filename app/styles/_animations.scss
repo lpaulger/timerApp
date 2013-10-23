@@ -1,56 +1,110 @@
-.fade {
-  &.ng-hide-add, &.ng-hide-remove {
-    -webkit-transition:0.5s linear all;
-    -moz-transition:0.5s linear all;
-    -o-transition:0.5s linear all;
-    transition:0.5s linear all;
-    display:block!important;
-  }
+.animation-container {
+  position: relative;
 
-  &.ng-hide {
-    opacity: 0;
-  }
-
-  &.ng-hide-add {
-    opacity:1;
-    &.ng-hide-add-active {
-      opacity:0;
-    }
-  }
-
-  &.ng-hide-remove {
-    opacity:0;
-    &.ng-hide-remove-active {
-      opacity:1;
-    }
+  .my-slide-animation {
+    position:absolute;
+    display: block;
+    width: 100%;
   }
 }
 
-.slide-horizontal {
-  &.ng-hide-add, &.ng-hide-remove {
-    -webkit-transition: height 0.35s ease;
-    -moz-transition: height 0.35s ease;
-    -o-transition: height 0.35s ease;
-    transition: height 0.35s ease;
-    display: block!important;
-  }
+$right: 2000px;
 
-  &.ng-hide-add {
-    height: 96px;
-    &.ng-hide-add-active {
-      position: relative;
-      height: 0;
-      overflow: hidden;
-    }
-  }
+.my-slide-animation.ng-enter, .my-slide-animation.ng-leave {
+  top:0;
+  right:$right;
+}
 
-  &.ng-hide-remove {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-    &.ng-hide-remove-active {
-      height: 96px;
-    }
+.my-slide-animation.ng-enter {
+  -webkit-animation: 0.5s slide-animation-enter;
+  -moz-animation: 0.5s slide-animation-enter;
+  -o-animation: 0.5s slide-animation-enter;
+  animation: 0.5s slide-animation-enter;
+}
+
+.my-slide-animation.ng-leave {
+  -webkit-animation: 0.5s slide-animation-leave;
+  -moz-animation: 0.5s slide-animation-leave;
+  -o-animation: 0.5s slide-animation-leave;
+  animation: 0.5s slide-animation-leave;
+}
+
+@keyframes slide-animation-enter {
+  from {
+    z-index:100;
+    right:$right;
+  }
+  to {
+    right:0;
   }
 }
 
+@keyframes slide-animation-leave {
+  from {
+    z-index:101;
+    right:0;
+  }
+  to {
+    right:-$right;
+  }
+}
+
+@-webkit-keyframes slide-animation-enter {
+  from {
+    z-index:100;
+    right:$right;
+  }
+  to {
+    right:0;
+  }
+}
+
+@-webkit-keyframes slide-animation-leave {
+  from {
+    z-index:101;
+    right:0;
+  }
+  to {
+    right:-$right;
+  }
+}
+
+@-moz-keyframes slide-animation-enter {
+  from {
+    z-index:100;
+    top:$right;
+  }
+  to {
+    right:0;
+  }
+}
+
+@-moz-keyframes slide-animation-leave {
+  from {
+    z-index:101;
+    right:0;
+  }
+  to {
+    right:-$right;
+  }
+}
+
+@-o-keyframes slide-animation-enter {
+  from {
+    z-index:100;
+    right:$right;
+  }
+  to {
+    right:0;
+  }
+}
+
+@-o-keyframes slide-animation-leave {
+  from {
+    z-index:101;
+    right:0;
+  }
+  to {
+    right:-$right;
+  }
+}

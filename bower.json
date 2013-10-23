@@ -1,0 +1,38 @@
+{
+  "name": "timerApp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/lpaulger/timerApp",
+  "authors": [
+    "Lucas Paulger <lucas.paulger@gmail.com>"
+  ],
+  "description": "simple repeat timer for activities",
+  "main": "app/app.js",
+  "keywords": [
+    "repeat",
+    "timer",
+    "LP"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.0-rc.2",
+    "angular-route": "1.2.0-rc.2",
+    "angular-touch": "1.2.0-rc.2",
+    "angular-localstorage": "latest",
+    "angular-mobile-nav": "latest",
+    "angular-bootstrap": "latest",
+    "sass-bootstrap": "latest",
+    "font-awesome": "latest"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.0-rc.2",
+    "angular-scenario": "1.2.0-rc.2"
+  }
+}

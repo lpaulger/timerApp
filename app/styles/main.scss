@@ -1,15 +1,67 @@
 /* Will be compiled down to a single stylesheet with your sass files */
-$iconSpritePath:          "../components/sass-bootstrap/img/glyphicons-halflings.png";
-$iconWhiteSpritePath:     "../components/sass-bootstrap/img/glyphicons-halflings-white.png";
-@import "../components/sass-bootstrap/lib/bootstrap";
-@import "../components/sass-bootstrap/lib/responsive";
-@import "animations";
+$icon-font-path: "../components/sass-bootstrap/fonts/";
+$border-radius-base: 0px;
+$border-radius-large: 0px;
+$border-radius-small: 0px;
+$grid-gutter-width: 10px;
 
-.navbar-fixed-top .navbar-inner {
-  padding: 0;
-  
+@import "../components/sass-bootstrap/lib/bootstrap";
+
+$FontAwesomePath: "../components/font-awesome/font";
+
+@import "../components/font-awesome/scss/font-awesome";
+@import "animations";
+@import "clock";
+
+html, body, .container {
+  height: 100%;
+  overflow: hidden;
 }
-.navbar-inner {
+
+html {
+  background: url('../assets/images/tweed_@2X.png');
+}
+
+h1 , h2, h4{
+  margin: 10px;
+  text-align: center;
+}
+
+.text-container {
+  padding: 0 5px;
+}
+
+.mb-page {
+  background-color: white;
+}
+
+.container .mb-page{
+  > a {
+    text-decoration:none;
+    z-index: 10;
+    top: 5px;
+  }
+  > a:nth-child(1) {
+    position: absolute;
+    left: 5px;
+  }
+
+  > a:nth-child(2) {
+    position: absolute;
+    right: 5px;
+  }
+}
+
+.navbar {
+  a.navbar-btn {
+    position: absolute;
+    left: 5px;
+    font-size: 1.25em;
+    margin-top: 5px;
+  }
+}
+
+.navbar-header {
   display: table;
   height: 50px;
   width: 100%;
@@ -25,6 +77,10 @@ $iconWhiteSpritePath:     "../components/sass-bootstrap/img/glyphicons-halflings
   }
 }
 
+.control-group input {
+  width: 100%;
+}
+
 .control-label {
   width: 120px;
 }
@@ -33,6 +89,68 @@ $iconWhiteSpritePath:     "../components/sass-bootstrap/img/glyphicons-halflings
   display: inline-block;
 }
 
-.controls input[type="number"] {
-  width: 50px;
+
+.container .mb-page > .sticky-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  width: 100%;
+
+  select {
+    -webkit-appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .btn-primary, .btn-danger {
+    height: 68px;
+    font-size: 2em;
+  }
+}
+
+.select-container {
+  position: relative;
+  width: 100%;
+  select {
+    position: absolute;
+    top: 25%;
+    right: 5px;
+    left: 57px;
+  }
+
+  span {
+
+    b {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+//ios 7 needs 20px top
+body.phone-toolbar-spacing {
+  .container .mb-page{
+    > a {
+      top: 15px;
+    }
+    #watch , h1{
+      margin-top: 20px;
+    }
+  }
+}
+
+body:not(.phone-toolbar-spacing) {
+  max-width: 320px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.modal-container {
+  height: 100%;
+  position: relative;
 }
