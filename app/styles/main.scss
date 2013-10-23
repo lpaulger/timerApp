@@ -1,15 +1,32 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+
+//Only import bootstrap components we will use
 $icon-font-path: "../components/sass-bootstrap/fonts/";
 $border-radius-base: 0px;
 $border-radius-large: 0px;
 $border-radius-small: 0px;
 $grid-gutter-width: 10px;
 
-@import "../components/sass-bootstrap/lib/bootstrap";
+// Core variables and mixins
+@import "../components/sass-bootstrap/lib/variables";
+@import "../components/sass-bootstrap/lib/mixins";
+
+// Reset
+@import "../components/sass-bootstrap/lib/normalize";
+
+// Core CSS
+@import "../components/sass-bootstrap/lib/scaffolding";
+@import "../components/sass-bootstrap/lib/type";
+@import "../components/sass-bootstrap/lib/forms";
+@import "../components/sass-bootstrap/lib/buttons";
+@import "../components/sass-bootstrap/lib/button-groups";
+
+
 
 $FontAwesomePath: "../components/font-awesome/font";
-
 @import "../components/font-awesome/scss/font-awesome";
+
+
 @import "animations";
 @import "clock";
 
