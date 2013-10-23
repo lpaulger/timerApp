@@ -8,5 +8,6 @@ www
 !/www/res/
 !/www/config.xml
 coverage
+!.gitignore
 platforms
 plugins
