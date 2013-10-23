@@ -11,7 +11,9 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <link rel="stylesheet" href="components/angular-mobile-nav/mobile-nav.css">
-  <link rel="stylesheet" href="styles/1f57cc14.main.css">
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
 
   <script src="cordova.js"></script>
 </head>
@@ -27,7 +29,7 @@
 
       <!-- Add your site or application content here -->
       <div class="container my-slide-animation" mobile-view=""></div>
-      
+
       <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-23249160-1']);
@@ -48,7 +50,28 @@
       <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 
-      <script src="scripts/347b61d0.scripts.js"></script>
+      <!-- build:js scripts/scripts.js -->
+      <script src="scripts/app.js"></script>
+
+      <script src="scripts/config/config.js"></script>
+      <script src="scripts/config/config.device.js"></script>
+      <script src="scripts/config/config.events.js"></script>
+
+      <script src="scripts/controllers/main.js"></script>
+      <script src="scripts/controllers/settings.js"></script>
+      <script src="scripts/controllers/info.js"></script>
+      <script src="scripts/controllers/timepicker.modal.js"></script>
+
+      <script src="scripts/directives/directives.js"></script>
+
+      <script src="scripts/filters/range.js"></script>
+
+      <script src="scripts/services/services.js"></script>
+      <script src="scripts/services/timer.js"></script>
+      <script src="scripts/services/dataStore.js"></script>
+
+      <script src="scripts/init.js"></script>
+      <!-- endbuild -->
 
       <audio id="bell-sound" src="assets/sounds/bell-ringing-05.mp3"></audio>
       <audio id="bell-complete-sound" src="assets/sounds/bell-ringing-04.mp3"></audio>
