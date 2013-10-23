@@ -15,6 +15,11 @@ $FontAwesomePath: "../components/font-awesome/font";
 
 html, body, .container {
   height: 100%;
+  overflow: hidden;
+}
+
+html {
+  background: url('../assets/images/tweed_@2X.png');
 }
 
 h1 , h2, h4{
@@ -119,7 +124,7 @@ h1 , h2, h4{
   }
 
   span {
-    
+
     b {
       display: block;
       text-align: center;
@@ -137,6 +142,12 @@ body.phone-toolbar-spacing {
       margin-top: 20px;
     }
   }
+}
+
+body:not(.phone-toolbar-spacing) {
+  max-width: 320px;
+  margin: 0 auto;
+  background-color: white;
 }
 
 .modal-container {
