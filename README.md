@@ -1,8 +1,6 @@
 timerApp
 ========
 
-<iframe src="http://lucaspaulger.com/timerApp/#/" class="mobile-app"></iframe>
-
 This is a continuation of my blog post from last month [Mobile Apps Phonegap Yeoman](/javascript/2013/09/25/Mobile-apps-Phonegap-Yeoman/). I decide to spend a little more time to enhance the application, submit it to iTunes and publish it to the [web](/timerApp/) (try out the app to the left). The iPhone App will be available soon in [the app store](https://itunes.apple.com/us/app/repeat-timer-lp/id730948498?ls=1&mt=8). Feel free to leave comments and let me know what you think. Please find the [Github repository here](https://github.com/lpaulger/timerApp).
 
 ## Getting started
