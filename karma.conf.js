@@ -17,7 +17,7 @@ module.exports = function(config) {
       'app/components/angular-route/angular-route.js',
       'app/components/angular-touch/angular-touch.js',
       'app/components/angular-mobile-nav/mobile-nav.js',
-      'app/components/angular-localstorage/angular-local-storage.js',
+      'app/components/angular-local-storage/angular-local-storage.js',
       'app/components/angular-bootstrap/ui-bootstrap-tpls.js',
       'app/components/angular-mocks/angular-mocks.js',
       'app/scripts/config/config.js',

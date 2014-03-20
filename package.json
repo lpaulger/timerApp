@@ -29,6 +29,7 @@
     "matchdep": "~0.1.1",
     "grunt-google-cdn": "~0.1.1",
     "grunt-ngmin": "~0.0.2",
+    "karma": "~0.10",
     "karma-ng-html2js-preprocessor": "~0.1",
     "karma-coverage": "~0.1"
   },

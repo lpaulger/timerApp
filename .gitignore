@@ -11,3 +11,4 @@ coverage
 !.gitignore
 platforms
 plugins
+*.log
