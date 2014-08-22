@@ -6,7 +6,7 @@
     "ejs": "0.8.4"
   },
   "devDependencies": {
-    "cordova": "3.0.9",
+    "cordova": "3.4.0",
     "grunt": "~0.4.1",
     "grunt-shell": "latest",
     "grunt-contrib-copy": "~0.4.0",
