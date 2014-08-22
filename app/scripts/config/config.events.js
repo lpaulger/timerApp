@@ -1,7 +1,7 @@
 /*globals alert*/
 'use strict';
 
-angular.module('LP.config').factory('events', function(deviceEvents){
+angular.module('LP.config').factory('events', function(deviceEvents, $log){
   return {
     intervalTick: function(){
       document.getElementById('clock-tick-sound').play();
@@ -12,9 +12,9 @@ angular.module('LP.config').factory('events', function(deviceEvents){
     },
     start: function(){
       deviceEvents.acquire(function(){
-        alert('success');
+        $log.info('acquire success');
       }, function(){
-        alert('failure');
+        $log.error('acquire failure');
       });
     },
     cancel: function(){
@@ -22,18 +22,18 @@ angular.module('LP.config').factory('events', function(deviceEvents){
       document.getElementById('bell-cancel-sound').play();
       deviceEvents.vibrate(1000);
       deviceEvents.release(function(){
-        alert('success');
+        $log.info('release success');
       }, function(){
-        alert('failure');
+        $log.error('release failure');
       });
     },
     complete: function(){
       deviceEvents.vibrate(1000);
       document.getElementById('bell-complete-sound').play();
       deviceEvents.release(function(){
-        alert('success');
+        $log.info('release success');
       }, function(){
-        alert('failure');
+        $log.error('release failure');
       });
     }
   };
