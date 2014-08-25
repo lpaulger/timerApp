@@ -1,0 +1,5 @@
+v0.0.1:
+  date: 2014-03-20
+  changes:
+    - package updates for local-storage
+    - package updates for karma
